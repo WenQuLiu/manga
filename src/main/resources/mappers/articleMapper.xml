@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.cmfzadmin.dao.ArticleDao">
+    <resultMap id="baseResultMap" type="com.baizhi.cmfz.cmfzadmin.entity.Article">
+       <id column="articleId" property="articleId"/>
+        <result column="articleTitle" property="articleTitle"/>
+        <result column="articleContent" property="articleContent"/>
+        <result column="articleUptime" property="articleUptime"/>
+        <result column="guruId" property="guruId"/>
+        <result column="articleFlag" property="articleFlag"/>
+    </resultMap>
+     <insert id="insert">
+         insert into t_article values(#{articleId},#{articleTitle},#{articleContent},#{articleUptime},#{guruId},#{articleFlag})
+     </insert>
+    <select id="selectAllArticle" resultType="com.baizhi.cmfz.cmfzadmin.entity.Article">
+        select * from t_article
+    </select>
+</mapper>

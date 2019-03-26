@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "../mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.cmfz.cmfzadmin.dao.SlidesshowDao">
+     <select id="selectByPage" resultType="Slidesshow">
+         select * from t_slidesshow limit #{begin},#{end}
+     </select>
+
+    <select id="selectCount" resultType="int">
+        select count(*) from t_slidesshow
+    </select>
+
+    <select id="selectById" resultType="Slidesshow">
+        select * from t_slidesshow where slidesshowId=#{id}
+    </select>
+
+    <insert id="insert">
+        insert into t_slidesshow values(#{slidesshowId},#{slidesshowDescribe},#{slidesshowPosition},#{slidesshowFlag},#{slidesshowUploadtime})
+    </insert>
+
+    <update id="update">
+        update t_slidesshow set slidesshowDescribe=#{slidesshowDescribe},slidesshowPosition=#{slidesshowPosition},slidesshowFlag=#{slidesshowFlag},slidesshowUploadtime=#{slidesshowUploadtime} where slidesshowId=#{slidesshowId}
+    </update>
+</mapper>
